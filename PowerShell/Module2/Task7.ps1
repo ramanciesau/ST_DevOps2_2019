@@ -6,12 +6,12 @@
 $memProcs = @(Get-Process | Select-Object VirtualMemorySize, Name)
 foreach($obj in $memProcs)
 {
-    if(($obj.VirtualMemorySize / 1000000) -gt 100.0)
+    if($obj.VirtualMemorySize / 1MB -gt 100)
     {
-    Write-Host ($obj.Name + "-" + ($obj.VirtualMemorySize / 1000000 )) -ForegroundColor red
+        Write-Host ($obj.Name + "-" + ($obj.VirtualMemorySize / 1MB)) -ForegroundColor red
     }
     else
     {
-    Write-Host ($obj.Name + "-" + ( $obj.VirtualMemorySize / 1000000 )) -ForegroundColor Green
+        Write-Host ($obj.Name + "-" + ( $obj.VirtualMemorySize / 1MB)) -ForegroundColor Green
     }
 }
