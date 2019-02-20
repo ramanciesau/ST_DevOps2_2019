@@ -1,0 +1,2 @@
+﻿#При помощи WMI просмотреть список запущенных служб на удаленном компьютере.
+Invoke-Command -ScriptBlock {Get-Service |  Where-Object{$_.Status -eq "Running"}} -ComputerName 169.254.170.35 -Credential VM1_Teshev\Administrator
